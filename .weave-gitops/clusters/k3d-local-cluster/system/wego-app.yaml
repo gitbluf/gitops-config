@@ -13,7 +13,7 @@ spec:
       serviceAccountName: wego-app-service-account
       containers:
         - name: wego-app
-          image: ghcr.io/weaveworks/wego-app:0.6.1
+          image: ghcr.io/weaveworks/wego-app:0.6.2
           args: ["ui", "run", "-l", "--helm-repo-namespace", "wego-system"]
           ports:
             - containerPort: 9001
@@ -22,6 +22,51 @@ spec:
   selector:
     matchLabels:
       app: wego-app
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: wego-helm-watcher-role
+rules:
+  - apiGroups:
+      - source.toolkit.fluxcd.io
+    resources:
+      - helmrepositories
+    verbs:
+      - get
+      - list
+      - watch
+      - patch
+      - update
+  - apiGroups:
+      - source.toolkit.fluxcd.io
+    resources:
+      - helmrepositories/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - patch
+      - update
+  - apiGroups:
+      - source.toolkit.fluxcd.io
+    resources:
+      - helmrepositories/status
+    verbs:
+      - get
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: wego-helm-watcher-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: wego-helm-watcher-role
+subjects:
+  - kind: ServiceAccount
+    name: wego-app-service-account
+    namespace: wego-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
