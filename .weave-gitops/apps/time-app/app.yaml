@@ -1,0 +1,16 @@
+---
+apiVersion: wego.weave.works/v1alpha1
+kind: Application
+metadata:
+  labels:
+    wego.weave.works/app-identifier: wego-1cc4248cdca841b8209afecb378f8fb5
+  name: time-app
+  namespace: wego-system
+spec:
+  branch: master
+  config_url: ssh://git@github.com/gitbluf/gitops-config.git
+  deployment_type: helm
+  helm_target_namespace: time-app
+  path: ./chart
+  source_type: git
+  url: ssh://git@github.com/gitbluf/what-time-is-it.git

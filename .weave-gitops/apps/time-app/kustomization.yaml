@@ -1,8 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: k3d-local-cluster
+  name: time-app
   namespace: wego-system
 resources:
-- ../../../apps/microservices-helm
-- ../../../apps/time-app
+- app.yaml
+- time-app-gitops-deploy.yaml
+- time-app-gitops-source.yaml
