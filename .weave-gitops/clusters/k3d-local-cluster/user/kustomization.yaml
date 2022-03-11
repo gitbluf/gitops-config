@@ -3,6 +3,3 @@ kind: Kustomization
 metadata:
   name: k3d-local-cluster
   namespace: wego-system
-resources:
-- ../../../apps/microservices-demo
-- ../../../apps/microservices-demo
