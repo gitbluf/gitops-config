@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-if [ -d .wego-system ]; then
+GITOPS_DIR=.weave-gitops
+
+if [ -d $GITOPS_DIR ]; then
 	echo "Cleaning..."
-	rm -rf .wego-system
+	rm -rf $GITOPS_DIR
 
 	git add -A && \
 		git commit -m "Cleanup" && \
