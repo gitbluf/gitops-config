@@ -4,5 +4,4 @@ metadata:
   name: k3d-local-cluster
   namespace: wego-system
 resources:
-- ../../../apps/microservices-helm
 - ../../../apps/time-app
