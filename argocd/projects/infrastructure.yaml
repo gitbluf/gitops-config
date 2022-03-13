@@ -71,4 +71,4 @@ spec:
         automated:
           allowEmpty: true
           prune: true
-          selfHeal: '{{selfHeal}}'
+          selfHeal: true # '{{selfHeal}}'
