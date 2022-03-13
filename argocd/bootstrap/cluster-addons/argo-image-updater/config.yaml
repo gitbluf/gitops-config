@@ -1,0 +1,5 @@
+appName: argo-image-updater
+destNamespace: argocd
+srcTargetRevision: ""
+selfHeal: true
+labels: null
