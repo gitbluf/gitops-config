@@ -70,5 +70,5 @@ spec:
       syncPolicy:
         automated:
           allowEmpty: true
-          prune: '{{prune}}'
+          prune: true
           selfHeal: '{{selfHeal}}'
