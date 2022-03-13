@@ -68,6 +68,8 @@ spec:
         server: '{{server}}'
         namespace: '{{destNamespace}}'
       syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
         automated:
           allowEmpty: true
           prune: true

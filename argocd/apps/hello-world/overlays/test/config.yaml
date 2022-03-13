@@ -1,0 +1,8 @@
+appName: "hello-world"
+userGivenName: "hello-world"
+destNamespace: "default"
+destServer: "https://kubernetes.default.svc"
+srcPath: "argocd/apps/hello-world/overlays/test"
+srcRepoURL: "https://github.com/gitbluf/gitops-config.git"
+srcTargetRevision: ""
+labels: null
