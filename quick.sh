@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 
+
+
+GIT_REPO=$(git remote -v | awk '{print $2}' | head -1)
+
+
 function gitops-core {
 	local -r GITOPS_DIR=.weave-gitops
 
 	if [ $1 == "clean" ]; then
 	   if [ -d $GITOPS_DIR ]; then
 		echo "Cleaning..."
+		gitops uninstall
 		rm -rf $GITOPS_DIR
 		git add -A && \
 			git commit -m "Cleanup" && \
@@ -13,15 +19,17 @@ function gitops-core {
 	   else
 	       echo "Nothing found.."
 	   fi
+	else
+	   gitops install --config-repo $GIT_REPO
 	fi
 }
 
 
-function argocd-autopilot {
+function argocd-auto {
 	export GIT_TOKEN=$GITHUB_TOKEN
 	export GIT_REPO=https://github.com/gitbluf/gitops-config/argocd
 	
-	if [[ "$1" == "clean" ]]; then
+	if [ $1 == "clean" ]; then
 	    argocd-autopilot repo uninstall	
 	else
 	    argocd-autopilot repo bootstrap
@@ -33,7 +41,7 @@ function argocd-autopilot {
 # ENTRYPOINT
 case $1 in
   "argo")
-    argocd-autopilot $2
+    argocd-auto $2
     ;;
   "gitops")
 	gitops-core $2

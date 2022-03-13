@@ -1,0 +1,6 @@
+appName: argo-workflows
+destNamespace: argo-workflows
+srcTargetRevision: ""
+selfHeal: true
+prune: true
+labels: null

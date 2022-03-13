@@ -1,0 +1,2 @@
+resources:
+- https://github.com/argoproj/applicationset//examples/git-generator-directory/cluster-addons/argo-workflows?ref=master

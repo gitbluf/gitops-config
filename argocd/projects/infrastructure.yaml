@@ -1,0 +1,74 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  annotations:
+    argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
+    argocd.argoproj.io/sync-options: PruneLast=true
+    argocd.argoproj.io/sync-wave: "-2"
+  creationTimestamp: null
+  name: infrastructure
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  description: infra project
+  destinations:
+  - namespace: '*'
+    server: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - '*'
+status: {}
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: infrastructure
+  namespace: argocd
+spec:
+  generators:
+    - matrix:
+        generators:
+        - git:
+           files:
+           - path: argocd/bootstrap/cluster-addons/**/config.yaml
+           repoURL: https://github.com/gitbluf/gitops-config.git
+           requeueAfterSeconds: 20
+           revision: ""
+           template:
+             metadata: {}
+             spec:
+               destination: {}
+               project: ""
+               source:
+                  directory:
+                    exclude: '{{ exclude }}'
+                    include: '{{ include }}'
+                    jsonnet: {}
+                    recurse: true
+                  repoURL: ""
+        - clusters:
+            values:
+              environment: local
+  template:
+    metadata:
+      name: '{{values.environment}}-{{appName}}'
+    spec:
+      project: infrastructure
+      source:
+        repoURL: https://github.com/gitbluf/gitops-config.git
+        targetRevision: HEAD
+        path: 'argocd/bootstrap/cluster-addons/{{appName}}'
+      destination:
+        server: '{{server}}'
+        namespace: '{{destNamespace}}'
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          prune: '{{prune}}'
+          selfHeal: '{{selfHeal}}'
