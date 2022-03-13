@@ -5,13 +5,13 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
   creationTimestamp: null
-  name: cluster-addons
+  name: cluster-resources
   namespace: argocd
 spec:
   generators:
   - git:
       files:
-      - path: argocd/bootstrap/cluster-addons/**/*.json
+      - path: argocd/bootstrap/cluster-resources/*.json
       repoURL: https://github.com/gitbluf/gitops-config.git
       requeueAfterSeconds: 20
       revision: ""
@@ -41,7 +41,7 @@ spec:
         kind: Application
       project: default
       source:
-        path: argocd/bootstrap/cluster-addons/{{name}}
+        path: argocd/bootstrap/cluster-resources/{{name}}
         repoURL: https://github.com/gitbluf/gitops-config.git
       syncPolicy:
         automated:
