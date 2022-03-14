@@ -1,0 +1,6 @@
+appName: "time-app"
+imageList: mpetrovic992/time-app:v1.0.x
+helmValues: |
+   image:
+      repository: mpetrovic992/time-app
+      image: v1.0.5

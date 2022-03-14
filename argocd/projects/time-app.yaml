@@ -1,0 +1,82 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  annotations:
+    argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
+    argocd.argoproj.io/sync-options: PruneLast=true
+    argocd.argoproj.io/sync-wave: "-2"
+  creationTimestamp: null
+  name: time-app
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  description: infra project
+  destinations:
+  - namespace: '*'
+    server: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - '*'
+status: {}
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: time-app
+  namespace: argocd
+spec:
+  generators:
+    - matrix:
+        generators:
+        - git:
+           files:
+           - path: argocd/apps/time-app/**/config.yaml
+           repoURL: https://github.com/gitbluf/gitops-config.git
+           requeueAfterSeconds: 20
+           revision: ""
+           template:
+             metadata: {}
+             spec:
+               destination: {}
+               project: ""
+               source:
+                  directory:
+                    exclude: '{{ exclude }}'
+                    include: '{{ include }}'
+                    jsonnet: {}
+                    recurse: true
+                  repoURL: ""
+        - clusters:
+            values:
+              environment: dev
+  template:
+    metadata:
+      name: '{{values.environment}}-{{appName}}'
+      annotations:
+        argocd-image-updater.argoproj.io/image-list: '{{ imageList }}'
+        argocd-image-updater.argoproj.io/write-back-method: git
+        argocd-image-updater.argoproj.io/git-branch: image-updater{{range .Images}}-{{.Name}}-{{.NewTag}}{{end}}
+    spec:
+      project: time-app
+      source:
+        repoURL: https://github.com/gitbluf/what-time-is-it.git
+        targetRevision: HEAD
+        path: 'chart'
+        helm:
+          values: '{{ helmValues }}'
+      destination:
+        server: '{{server}}'
+        namespace: time-app
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true # '{{selfHeal}}'
