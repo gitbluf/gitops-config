@@ -4,3 +4,5 @@ helmValues: |
    image:
       repository: mpetrovic992/time-app
       image: v1.0.5
+   ingress:
+      enabled: false
