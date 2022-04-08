@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: fsa-installation
+  namespace: argocd
+spec:
+  prune: true
+  interval: 2m
+  path: "./demo/artifacts/fsa-installation"
+  sourceRef:
+    kind: GitRepository
+    name: fsa-demo
+    namespace: flux-system
+  timeout: 10m
+  targetNamespace: argocd
+  wait: true
