@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata: 
+  name: time-app-dev
+  namespace: argocd
+spec:
+  prune: true
+  interval: 2m
+  path: "./demo/artifacts/time-app"
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  timeout: 10m
+  targetNamespace: argocd
+  wait: true

@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
 - ./features/fsa-installation/ks.yaml
 - ./features/default-app/ks.yaml
-- ./manifests/dev
+- ./features/time-app/ks.yaml
