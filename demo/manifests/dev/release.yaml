@@ -1,0 +1,24 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: time-app
+  namespace: time-app
+spec:
+  upgrade:
+    timeout: 5m
+    remediation:
+      remediateLastFailure: true
+  install:
+    timeout: 5m
+  rollback:
+    timeout: 5m
+  test:
+    enable: false
+  interval: 60m
+  chart:
+    spec:
+      chart: ./chart
+      sourceRef:
+        kind: GitRepository
+        name: time-app
+        namespace: flux-system

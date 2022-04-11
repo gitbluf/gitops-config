@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: time-app 
+  namespace: flux-system
+spec:
+  interval: 60m
+  url: https://github.com/gitbluf/what-time-is-it.git
+  ref:
+    branch: master

@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: time-app-dev
+  namespace: argocd
+spec:
+  destination:
+    namespace: time-app
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ./demo/manifests/dev
+    repoURL: https://github.com/gitbluf/gitops-config.git
+    targetRevision: master
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - FluxSubsystem=true
+    - CreateNamespace=true
