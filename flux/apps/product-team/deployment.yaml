@@ -6,6 +6,4 @@ commonLabels:
 
 args:
 - name: environment
-  default : dev
 - name: file
-  default: dev

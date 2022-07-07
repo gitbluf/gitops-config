@@ -17,4 +17,4 @@ spec:
       interval: 1m
   targetNamespace: {{ args.environment }}
   values: |
-      {{ values }}
+    {{ values }}

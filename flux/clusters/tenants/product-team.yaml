@@ -12,8 +12,10 @@ spec:
     name: flux-system
     namespace: flux-system
   timeout: 2m
-  target: dev
   prune: true
+  target: dev
+  args:
+    environment: dev
 ---
 apiVersion: flux.kluctl.io/v1alpha1
 kind: KluctlDeployment
@@ -28,5 +30,7 @@ spec:
     name: flux-system
     namespace: flux-system
   timeout: 2m
-  target: prod
   prune: true
+  target: prod
+  args:
+    environment: prod
