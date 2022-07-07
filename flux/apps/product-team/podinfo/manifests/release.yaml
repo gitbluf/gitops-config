@@ -17,5 +17,5 @@ spec:
       interval: 1m
   releaseName: {{ service }}
   targetNamespace: {{ args.environment }}
-  values: |
+  values:
     {{ values }}
