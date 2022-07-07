@@ -1,0 +1,12 @@
+# waitReadiness: false
+deployments:
+- include: podinfo
+
+commonLabels:
+  team: product-team
+
+args:
+- name: environment
+  default : dev
+- name: file
+  default: dev

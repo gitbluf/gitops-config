@@ -1,0 +1,5 @@
+deployments:
+- path: manifests
+
+vars:
+- file: vars/{{ args.file }}.yaml

@@ -1,0 +1,10 @@
+targets:
+- name: dev
+  args:
+    environment: dev
+    values: dev
+
+- name: prod
+  args:
+    environment: prod
+    values: prod

@@ -16,6 +16,5 @@ spec:
         namespace: {{ args.environment }}
       interval: 1m
   targetNamespace: {{ args.environment }}
-  valuesFrom:
-  - kind: ConfigMap
-    name: values
+  values: |
+      {{ values }}
