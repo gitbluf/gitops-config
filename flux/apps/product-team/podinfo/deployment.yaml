@@ -1,5 +1,8 @@
 deployments:
 - path: manifests
 
+commonLabels:
+  service: podinfo-{{ args.environment }}
+
 vars:
 - file: vars/{{ args.environment }}.yaml

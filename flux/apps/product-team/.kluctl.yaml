@@ -1,10 +1,10 @@
 targets:
 - name: dev
-  context: default
+  context: rancher-desktop
   args:
     environment: dev
 
 - name: prod
-  context: default
+  context: rancher-desktop
   args:
     environment: prod
