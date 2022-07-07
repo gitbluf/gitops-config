@@ -1,7 +1,7 @@
 deployments:
 - include: podinfo
   tags:
-   - podinfo-{{ args.environment }}
+  - podinfo-{{ args.environment }}
 
 commonLabels:
   team: product-team-{{ args.environment }}
