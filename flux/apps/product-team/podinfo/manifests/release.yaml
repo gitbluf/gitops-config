@@ -8,7 +8,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: {{ service }}
+      chart: {{ chart }}
       version: {{ chart_version }}
       sourceRef:
         kind: HelmRepository
