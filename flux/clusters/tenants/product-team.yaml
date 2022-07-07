@@ -14,6 +14,9 @@ spec:
   timeout: 2m
   prune: true
   target: dev
+  renameContexts:
+  - oldContext: default
+    newContext: rancher-desktop
 
 ---
 apiVersion: flux.kluctl.io/v1alpha1
@@ -31,3 +34,6 @@ spec:
   timeout: 2m
   prune: true
   target: prod
+  renameContexts:
+  - oldContext: default
+    newContext: rancher-desktop
