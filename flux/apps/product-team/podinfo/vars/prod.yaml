@@ -1,0 +1,5 @@
+service: podinfo
+chart: podinfo
+chart_version: 5.0.0
+values : |
+  replicaCount: 2
