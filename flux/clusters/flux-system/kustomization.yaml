@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-- https://github.com/kluctl/flux-kluctl-controller/config/install?ref=v0.3.0
+# - https://github.com/kluctl/flux-kluctl-controller/config/install?ref=v0.3.0
