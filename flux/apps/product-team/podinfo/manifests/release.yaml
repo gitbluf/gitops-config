@@ -15,6 +15,7 @@ spec:
         name: {{ chart }}
         namespace: {{ args.environment }}
       interval: 1m
+  releaseName: {{ service }}
   targetNamespace: {{ args.environment }}
   values: |
     {{ values }}
