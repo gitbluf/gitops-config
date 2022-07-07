@@ -2,4 +2,4 @@ service: podinfo-prod
 chart: podinfo
 chart_version: 5.0.0
 values : |
-  replicaCount: 4
+  replicaCount: 2
