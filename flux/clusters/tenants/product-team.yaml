@@ -1,8 +1,8 @@
 ---
 apiVersion: flux.kluctl.io/v1alpha1
 kind: KluctlDeployment
-metadata:
-  name: product-team
+metadata:  
+  name: product-team-dev
   namespace: dev
 spec:
   interval: 5m
@@ -19,7 +19,7 @@ spec:
 apiVersion: flux.kluctl.io/v1alpha1
 kind: KluctlDeployment
 metadata:
-  name: product-team
+  name: product-team-prod
   namespace: prod
 spec:
   interval: 5m
