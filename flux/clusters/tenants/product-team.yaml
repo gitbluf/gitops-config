@@ -3,6 +3,7 @@ apiVersion: flux.kluctl.io/v1alpha1
 kind: KluctlDeployment
 metadata:
   name: microservices-demo-prod
+  namespace: dev
 spec:
   interval: 5m
   path: "./flux/apps/product-team"
