@@ -13,4 +13,7 @@ spec:
       namespace: '*'
     - kind: KluctlDeployment
       name: '*'
-      namespace: '*'
+      namespace: dev
+    - kind: KluctlDeployment
+      name: '*'
+      namespace: prod
