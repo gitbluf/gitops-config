@@ -2,7 +2,7 @@
 apiVersion: flux.kluctl.io/v1alpha1
 kind: KluctlDeployment
 metadata:
-  name: microservices-demo-prod
+  name: product-team
   namespace: dev
 spec:
   interval: 5m
@@ -10,6 +10,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
+    namespace: flux-system
   timeout: 2m
   target: dev
   prune: true
@@ -17,5 +18,5 @@ spec:
   # found while it is deployed via the controller. This means we must pass a kubeconfig to kluctl that has the
   # context renamed to the one that it expects.
   # renameContexts:
-  #   - oldContext: default
-  #     newContext: kind-kind
+  # - oldContext: default
+  #   newContext: kind-kind
