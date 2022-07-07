@@ -14,8 +14,7 @@ spec:
   timeout: 2m
   prune: true
   target: dev
-  args:
-    environment: dev
+
 ---
 apiVersion: flux.kluctl.io/v1alpha1
 kind: KluctlDeployment
@@ -32,5 +31,3 @@ spec:
   timeout: 2m
   prune: true
   target: prod
-  args:
-    environment: prod

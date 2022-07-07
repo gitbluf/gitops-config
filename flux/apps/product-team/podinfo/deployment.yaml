@@ -2,4 +2,4 @@ deployments:
 - path: manifests
 
 vars:
-- file: vars/{{ args.file }}.yaml
+- file: vars/{{ args.environment }}.yaml

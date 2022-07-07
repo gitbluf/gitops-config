@@ -6,4 +6,3 @@ commonLabels:
 
 args:
 - name: environment
-- name: file
