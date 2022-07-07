@@ -1,4 +1,4 @@
-service: podinfo
+service: podinfo-prod
 chart: podinfo
 chart_version: 5.0.0
 values : |
