@@ -19,4 +19,4 @@ spec:
   # context renamed to the one that it expects.
   renameContexts:
   - oldContext: default
-    newContext: rancher-desktop
+    newContext: default

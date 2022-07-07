@@ -1,10 +1,10 @@
 targets:
 - name: dev
+  context: default
   args:
     environment: dev
-    values: dev
 
 - name: prod
+  context: default
   args:
     environment: prod
-    values: prod
