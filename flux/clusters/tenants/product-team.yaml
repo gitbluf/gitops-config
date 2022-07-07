@@ -14,9 +14,19 @@ spec:
   timeout: 2m
   target: dev
   prune: true
-  # kluctl targets specify the expected context name, which does not necessarily match the context name
-  # found while it is deployed via the controller. This means we must pass a kubeconfig to kluctl that has the
-  # context renamed to the one that it expects.
-  # renameContexts:
-  # - oldContext: default
-  #   newContext: default
+---
+apiVersion: flux.kluctl.io/v1alpha1
+kind: KluctlDeployment
+metadata:
+  name: product-team
+  namespace: prod
+spec:
+  interval: 5m
+  path: "./flux/apps/product-team"
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  timeout: 2m
+  target: prod
+  prune: true
