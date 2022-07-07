@@ -4,3 +4,10 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 # - https://github.com/kluctl/flux-kluctl-controller/config/install?ref=v0.3.0
+patchesJson6902:
+- target:
+    group: apiextensions.k8s.io
+    version: v1
+    kind: CustomResourceDefinition
+    name: alerts.notification.toolkit.fluxcd.io
+  path: 'alerts-crd-patch.yaml'
