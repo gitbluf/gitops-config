@@ -1,2 +1,2 @@
 deployments:
-- path: base
+- include: base
