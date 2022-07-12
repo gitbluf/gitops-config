@@ -11,7 +11,7 @@ targets:
     environment: prod
     file: prod
 
-- name: dynamic
+- name: "{{ target.targetConfig.ref }}"
   context: rancher-desktop
   args:
     environment: "{{ target.targetConfig.ref }}"
