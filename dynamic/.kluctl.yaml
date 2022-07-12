@@ -1,0 +1,5 @@
+targets:
+- name: {{ target.targetConfig.ref }}
+  context: rancher-desktop
+  targetConfig:
+    file: dynamic/dynamic.yaml
