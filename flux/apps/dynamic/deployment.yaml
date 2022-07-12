@@ -1,0 +1,5 @@
+deployments:
+- path: deploy
+
+commonLabels:
+  team: product-team
