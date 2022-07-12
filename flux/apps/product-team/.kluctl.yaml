@@ -16,8 +16,11 @@ targets:
   args:
     environment: dynamic
     file: values
+  dynamicArgs:
+  - name: environment
+  - name: file
   targetConfig:
     project:
       url: https://github.com/gitbluf/gitops-config.git
-    refPattern: feature/*
+    refPattern: feature*
     file: dynamic/dynamic.yaml

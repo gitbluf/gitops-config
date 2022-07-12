@@ -37,3 +37,23 @@ spec:
   renameContexts:
   - oldContext: default
     newContext: rancher-desktop
+
+---
+apiVersion: flux.kluctl.io/v1alpha1
+kind: KluctlDeployment
+metadata:
+  name: product-team-dynamic
+  namespace: dynamic
+spec:
+  interval: 5m
+  path: "./flux/apps/product-team"
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  timeout: 2m
+  prune: true
+  target: dynamic
+  renameContexts:
+  - oldContext: default
+    newContext: rancher-desktop
