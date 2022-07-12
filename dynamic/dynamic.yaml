@@ -1,1 +1,3 @@
-# placeholder
+args:
+  environment: {{ target.targetConfig.ref }}
+  file: values
