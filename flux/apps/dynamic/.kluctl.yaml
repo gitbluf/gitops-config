@@ -1,7 +1,0 @@
-- name: dynamic
-  context: rancher-desktop
-  targetConfig:
-    project:
-      url: https://github.com/gitbluf/gitops-config.git
-    refPattern: ^testing_([^\s]+)
-    file: flux/apps/dynamic/placeholder.yaml
