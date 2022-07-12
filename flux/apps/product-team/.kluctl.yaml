@@ -16,5 +16,5 @@ targets:
   targetConfig:
     project:
       url: https://github.com/gitbluf/gitops-config.git
-    refPattern: feature/* 
-    # file: dynamic/dynamic.yaml
+    refPattern: master 
+    file: dynamic/dynamic.yaml
