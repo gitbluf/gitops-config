@@ -11,7 +11,7 @@ targets:
     environment: prod
     file: prod
 
-- name: dynamic
+- name: "{{ target.targetRef.name }}"
   context: rancher-desktop
   args:
     environment: dynamic
