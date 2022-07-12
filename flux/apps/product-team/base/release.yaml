@@ -18,4 +18,4 @@ spec:
   releaseName: {{ service }}
   targetNamespace: {{ args.environment }}
   values:
-    {{ values }}
+    {{ values | to_yaml | indent(4) }}

@@ -1,8 +1,17 @@
 deployments:
-- path: manifests
+- path: ../base
+  tags:
+  - {{ args.environment }}-{{ target.name }}
+  vars:
+  - file: vars/{{ args.values }}.yaml
+
+{%- if target.name == "dev" %}
+# - path: ../base
+#   tags:
+#   - {{ target.name }}-{{ args.environment }}
+#   vars:
+#   - file: vars/debug.yaml
+{%- endif %}
 
 commonLabels:
-  service: podinfo-{{ args.environment }}
-
-vars:
-- file: vars/{{ args.environment }}.yaml
+  service: product-team-{{ args.environment }}-podinfo
