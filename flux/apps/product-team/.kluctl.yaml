@@ -22,5 +22,5 @@ targets:
   targetConfig:
     project:
       url: https://github.com/gitbluf/gitops-config.git
-    refPattern: ^feature/([^\s]+)
+    refPattern: feature/testing # ^feature/([^\s]+)
     file: dynamic/dynamic.yaml
