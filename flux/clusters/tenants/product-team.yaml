@@ -46,7 +46,7 @@ metadata:
   namespace: dynamic
 spec:
   interval: 5m
-  path: "./flux/apps/dynamic"
+  path: "./flux/apps/product-team"
   sourceRef:
     kind: GitRepository
     name: flux-system
