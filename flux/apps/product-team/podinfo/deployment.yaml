@@ -3,7 +3,7 @@ deployments:
   tags:
   - {{ args.environment }}-{{ target.name }}
   vars:
-  - file: vars/{{ args.values }}.yaml
+  - file: vars/{{ args.file }}.yaml
 
 {%- if target.name == "dev" %}
 # - path: ../base

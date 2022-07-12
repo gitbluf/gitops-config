@@ -6,6 +6,6 @@ commonLabels:
 
 args:
 - name: environment
-- name: values
+- name: file
 
 overrideNamespace: product-team

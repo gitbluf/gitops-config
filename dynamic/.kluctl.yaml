@@ -2,4 +2,7 @@ targets:
 - name: {{ target.targetConfig.ref }}
   context: rancher-desktop
   targetConfig:
+    project:
+      url: https://github.com/gitbluf/gitops-config.git
+    refPattern: master
     file: dynamic/dynamic.yaml

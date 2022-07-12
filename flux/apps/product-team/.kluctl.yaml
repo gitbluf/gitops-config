@@ -3,18 +3,16 @@ targets:
   context: rancher-desktop
   args:
     environment: dev
-    values: dev
+    file: dev
 
 - name: prod
   context: rancher-desktop
   args:
     environment: prod
-    values: prod
+    file: prod
 
-# - name: dynamic
-#   context: rancher-desktop
-#   targetConfig:
-#     project:
-#       url: https://github.com/gitbluf/gitops-config.git
-#     refPattern: master 
-#     file: dynamic/dynamic.yaml
+- name: dynamic
+  context: rancher-desktop
+  targetConfig:
+    project:
+      url: https://github.com/gitbluf/gitops-config.git

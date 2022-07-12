@@ -1,0 +1,7 @@
+deployments:
+- include: podinfo
+  # vars:
+  # - file: values.yaml
+
+commonLabels:
+  environment: dynamic
