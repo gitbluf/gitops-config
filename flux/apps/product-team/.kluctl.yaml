@@ -17,4 +17,4 @@ targets:
     project:
       url: https://github.com/gitbluf/gitops-config.git
     refPattern: feature/* 
-    file: flux/product/dynamic.yaml
+    file: dynamic/dynamic.yaml
