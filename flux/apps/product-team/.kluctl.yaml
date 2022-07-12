@@ -13,11 +13,11 @@ targets:
 
 - name: dynamic
   context: rancher-desktop
-  # args:
-  #   environment: dynamic
-  #   file: values
+  args:
+    environment: dynamic
+    file: values
   targetConfig:
     project:
       url: https://github.com/gitbluf/gitops-config.git
-    refPattern: master*
+    refPattern: feature/*
     file: dynamic/dynamic.yaml
