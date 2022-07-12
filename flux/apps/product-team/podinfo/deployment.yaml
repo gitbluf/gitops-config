@@ -14,4 +14,4 @@ deployments:
 {%- endif %}
 
 commonLabels:
-  service: product-team-{{ args.environment }}-podinfo
+  service: product-team-{{ target.name }}-podinfo

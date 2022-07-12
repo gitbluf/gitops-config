@@ -11,10 +11,10 @@ targets:
     environment: prod
     values: prod
 
-- name: dynamic
-  context: rancher-desktop
-  targetConfig:
-    project:
-      url: https://github.com/gitbluf/gitops-config.git
-    refPattern: master 
-    file: dynamic/dynamic.yaml
+# - name: dynamic
+#   context: rancher-desktop
+#   targetConfig:
+#     project:
+#       url: https://github.com/gitbluf/gitops-config.git
+#     refPattern: master 
+#     file: dynamic/dynamic.yaml

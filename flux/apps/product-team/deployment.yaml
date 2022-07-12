@@ -2,9 +2,10 @@ deployments:
 - include: podinfo
 
 commonLabels:
-  team: product-team-{{ args.environment }}
+  team: product-team
 
 args:
 - name: environment
+- name: values
 
-overrideNamespace: {{ args.environment }}
+overrideNamespace: product-team
