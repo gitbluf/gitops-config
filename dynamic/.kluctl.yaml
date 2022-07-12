@@ -1,9 +1,6 @@
 targets:
 - name: "{{ target.targetConfig.ref }}"
   context: rancher-desktop
-  args:
-    environment: "{{ target.targetConfig.ref }}"
-    file: values
   dynamicArgs:
   - name: environment
   - name: file
@@ -11,4 +8,4 @@ targets:
     project:
       url: https://github.com/gitbluf/gitops-config.git
     refPattern: master
-    file: dynamic.yaml
+    file: dynamic/dynamic.yaml
