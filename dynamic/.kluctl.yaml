@@ -3,3 +3,12 @@ targets:
   context: rancher-desktop
   args:
     environment: "{{ target.targetConfig.ref }}"
+    file: values
+  dynamicArgs:
+  - name: environment
+  - name: file
+  targetConfig:
+    project:
+      url: https://github.com/gitbluf/gitops-config.git
+    refPattern: master
+    file: dynamic.yaml
