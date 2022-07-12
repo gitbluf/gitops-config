@@ -1,0 +1,5 @@
+targets:
+- name: "{{ target.targetConfig.ref }}"
+  context: rancher-desktop
+  args:
+    environment: "{{ target.targetConfig.ref }}"

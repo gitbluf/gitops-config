@@ -1,3 +1,8 @@
 args:
+<<<<<<< HEAD
   environment: dynamic
   file: values
+=======
+  environment: "{{ target.targetConfig.ref }}"
+  file: values
+>>>>>>> master

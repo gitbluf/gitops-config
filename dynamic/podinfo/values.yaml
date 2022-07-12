@@ -1,4 +1,4 @@
-service: {{ target.targetConfig.ref }}-podinfo
+service: podinfo
 chart: podinfo
 chart_version: 5.0.0
 values :
