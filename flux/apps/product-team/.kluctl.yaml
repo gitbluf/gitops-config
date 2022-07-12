@@ -13,9 +13,6 @@ targets:
 
 - name: dynamic
   context: rancher-desktop
-  args:
-    environment: dynamic-{{ target.targetConfig.ref }}
-    values: dynamic
   targetConfig:
     project:
       url: https://github.com/gitbluf/gitops-config.git

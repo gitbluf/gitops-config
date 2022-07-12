@@ -1,2 +1,3 @@
 args:
+  environment: dynamic
   values: dynamic
