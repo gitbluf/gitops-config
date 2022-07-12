@@ -8,4 +8,4 @@ args:
 - name: environment
 - name: file
 
-overrideNamespace: product-team
+overrideNamespace: "{{ args.environment }}"
