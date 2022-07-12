@@ -14,7 +14,7 @@ targets:
 - name: dynamic
   context: rancher-desktop
   args:
-    environment: dynamic
+    environment: "{{ target.targetConfig.ref }}"
     file: values
   dynamicArgs:
   - name: environment
