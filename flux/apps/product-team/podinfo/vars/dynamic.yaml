@@ -1,8 +1,8 @@
-service: podinfo-dev
+service: {{ args.environment }}-podinfo
 chart: podinfo
 chart_version: 5.0.0
 values :
-  replicaCount: 2
+  replicaCount: 4
   image:
     repo: example.com
     tag: 1.0.2

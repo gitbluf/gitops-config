@@ -1,0 +1,3 @@
+args:
+  environment: {{ target.targetConfig.ref }}
+  values: dynamic
