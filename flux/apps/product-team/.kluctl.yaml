@@ -11,10 +11,10 @@ targets:
     environment: prod
     file: prod
 
-- name: "{{ target.targetRef.name }}"
+- name: dynamic # "{{ target.targetRef.name }}"
   context: rancher-desktop
   args:
-    environment: dynamic
+    environment: "{{ target.targetRef.name }}"
     file: values
   dynamicArgs:
   - name: environment
