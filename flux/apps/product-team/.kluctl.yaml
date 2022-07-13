@@ -11,16 +11,16 @@ targets:
     environment: prod
     file: prod
 
-- name: "{{ target.targetConfig.ref }}"
-  context: rancher-desktop
-  args:
-    environment: "{{ target.targetConfig.ref }}"
-    file: values
-  dynamicArgs:
-  - name: environment
-  - name: file
-  targetConfig:
-    project:
-      url: https://github.com/gitbluf/gitops-config.git
-    refPattern: ^testing_([^\s]+)
-    file: dynamic/dynamic.yaml
+# - name: "{{ target.targetConfig.ref }}"
+#   context: rancher-desktop
+#   args:
+#     environment: "{{ target.targetConfig.ref }}"
+#     file: values
+#   dynamicArgs:
+#   - name: environment
+#   - name: file
+#   targetConfig:
+#     project:
+#       url: https://github.com/gitbluf/gitops-config.git
+#     refPattern: ^testing_([^\s]+)
+#     file: dynamic/dynamic.yaml
