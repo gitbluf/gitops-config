@@ -1,2 +1,2 @@
 deployments:
-- path: templates
+- include: templates
