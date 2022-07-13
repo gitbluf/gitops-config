@@ -10,6 +10,15 @@ kind: HelmRelease
 metadata:
   name: hr
 spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: podinfo
+      version: ">=4.0.0 <5.0.0"
+      sourceRef:
+        kind: HelmRepository # GitRepository
+        name: podinfo
+      interval: 1m
 {%- if target.name in pipeline %}
   {%- if "install" in pipeline[target.name] %}
   install:
