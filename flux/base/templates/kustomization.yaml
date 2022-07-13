@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
 - source.yaml
 - release.yaml
+
+namePrefix: {{ deploy_name }}
