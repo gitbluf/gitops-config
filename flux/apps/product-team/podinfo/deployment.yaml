@@ -8,7 +8,7 @@ deployments:
 - git:
     url: https://github.com/gitbluf/gitops-config.git
     ref: master
-    subDir: base-templates
+    subDir: base-templates # base-template
   vars:
   - file: vars/{{ args.file }}.yaml
 
