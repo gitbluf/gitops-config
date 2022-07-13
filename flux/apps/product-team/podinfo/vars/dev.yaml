@@ -1,8 +1,6 @@
-service: podinfo-dev
-chart: podinfo
-chart_version: 5.0.0
-values :
-  replicaCount: 2
+deploy_name: dev
+chart_values:
+  replicaCount: 3
   image:
     repo: example.com
     tag: 1.0.2

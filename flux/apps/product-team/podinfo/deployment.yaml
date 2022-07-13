@@ -1,17 +1,26 @@
 deployments:
-- path: ../base
-  tags:
-  - {{ args.environment }}-{{ target.name }}
+# - path: deploy
+#   tags:
+#   - {{ args.environment }}-{{ target.name }}
+#   vars:
+#   - file: vars/{{ args.file }}.yaml
+
+- git:
+    url: https://github.com/gitbluf/gitops-config.git
+    ref: master
+    subDir: base-templates
   vars:
   - file: vars/{{ args.file }}.yaml
 
-{%- if target.name == "dev" %}
-# - path: ../base
-#   tags:
-#   - {{ target.name }}-{{ args.environment }}
-#   vars:
-#   - file: vars/debug.yaml
-{%- endif %}
+vars:
+- values: 
+    pipeline:
+      dev:
+        install:
+          retry: 10
+        upgrade:
+          remedy: false
+          
 
 commonLabels:
   service: product-team-{{ target.name }}-podinfo

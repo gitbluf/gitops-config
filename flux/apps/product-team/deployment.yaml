@@ -8,4 +8,20 @@ args:
 - name: environment
 - name: file
 
+vars: # global
+- values:
+    pipeline:
+      install: 
+        retry: 3
+        disableWaitForJobs: false
+      upgrade:
+        remedy: true
+        disableWaitForJobs: false
+        strategy: rollback # uninstall
+      test:
+        enabled: true
+        ignore: false
+      dependsOn: []
+
+
 overrideNamespace: "{{ args.environment }}"

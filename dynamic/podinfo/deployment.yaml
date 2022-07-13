@@ -1,5 +1,0 @@
-deployments:
-- path: ../base
-
-vars:
-- file: values.yaml

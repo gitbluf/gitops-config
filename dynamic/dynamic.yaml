@@ -1,2 +1,0 @@
-args:
-  environment: "{{ target.targetConfig.ref }}"

@@ -1,0 +1,42 @@
+bases:
+- base
+
+namePrefix: {{ deploy_name }}
+
+{%- macro set_field(field, map, key) %}
+    {%- if key in map %}
+      {{ field }}: {{ map[key] }}
+    {%- endif %}
+{%- endmacro %}
+
+patchesStrategicMerge:
+- |-
+    apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    metadata:
+      name: hr
+    spec:
+    {%- if target.name in pipeline %}
+      {%- if "install" in pipeline[target.name] %}
+      install:
+        remediation:
+          retries: {{ pipeline[target.name].install.retry }}
+      {%- endif %}
+      {%- if "upgrade" in pipeline[target.name] %}
+      upgrade:
+        remediation:
+          {{- set_field("strategy", pipeline[target.name].upgrade, "strategy") | indent(10) }}
+          {{- set_field("remediateLastFailure", pipeline[target.name].upgrade, "remedy") | indent(10) }}
+      {%- endif %}
+      {%- if "test" in pipeline[target.name] %}
+      test:
+        enable: {{ pipeline[target.name].test.enabled }}
+        ignoreFailures: {{ pipeline[target.name].test.ignore }}
+      {%- endif %}
+      {%- if "dependsOn" in pipeline[target.name] %}
+      dependsOn:
+          {{ pipeline[target.name].dependsOn | to_yaml | indent(10) }}
+      {%- endif %}
+    {%- endif %}
+      values:
+          {{ chart_values | to_yaml | indent(10) }}
